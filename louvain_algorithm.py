@@ -6,6 +6,7 @@ def initialize_communities(G):
     edge_communities = {edge: f"e_{edge[0]}_{edge[1]}" for edge in G.edges()}
     return communities, edge_communities
 
+
 def calculate_modularity(G, communities):
     m = G.size(weight='weight')
     degrees = dict(G.degree(weight='weight'))
@@ -18,6 +19,7 @@ def calculate_modularity(G, communities):
         total_degree = sum(degrees[n] for n in nodes)
         modularity_score += intra_edges / m - (total_degree / (2 * m))**2
     return modularity_score
+
 
 def louvain_algorithm(G):
     # Инициализация сообществ и предварительные расчеты
