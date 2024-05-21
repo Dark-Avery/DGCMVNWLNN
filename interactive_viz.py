@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets, QtCore, QtWebEngineWidgets
-from pyvis.network import Network
+from libs import pyvis
 import networkx as nx
 import json
 import sys
@@ -87,7 +87,7 @@ class GraphVisualization(QtWidgets.QWidget):
             level = self.slider.value()
             self.label.setText(f"Clustering Level: {level}")
 
-            net = Network(notebook=True, cdn_resources='in_line')
+            net = pyvis.network.Network(notebook=True, cdn_resources='in_line')
             
             # for node in self.G.nodes():
             #     self.G.nodes[node]['group'] = self.clusters[node] % level
